@@ -1,13 +1,13 @@
 UE.registerUI('dialog',function(editor,uiName){
-
     //创建dialog
-    var dialog = new UE.ui.Dialog({
+  var dialog = new UE.ui.Dialog({
         //指定弹出层中页面的路径，这里只能支持页面,因为跟addCustomizeDialog.js相同目录，所以无需加路径
         iframeUrl:'./components/custom/customizeDialogPage.html',
         //需要指定当前的编辑器实例
         editor:editor,
         //指定dialog的名字
         name:uiName,
+        id:"testiframe",
         //dialog的标题
         title:"这是个测试浮层",
 
@@ -20,7 +20,15 @@ UE.registerUI('dialog',function(editor,uiName){
                 className:'edui-okbutton',
                 label:'确定',
                 onclick:function () {
-                     UE.getEditor('editor').execCommand('insertHtml', '<p style="color: red;">测试标签</p>')
+                 var iframe=document.getElementById("testiframe_iframe").contentWindow;
+                 var v=iframe.document.getElementsByClassName("test")[0].value;
+                 var obj={
+                     "test":v
+                 };
+                     UE.getEditor('editor').execCommand('insertHtml', testhtml(obj),true);
+                    // editor.setDisabled();clearEmptyAttrs
+                    //console.log(UE.dom.domUtils.remove)
+                   // UE.dom.domUtils.remove(document.getElementsByClassName("dialog_click")[])
                     dialog.close(true);
                 }
             },
@@ -33,6 +41,15 @@ UE.registerUI('dialog',function(editor,uiName){
             }
         ]});
 
+  editor.ui._dialogs.linkDialog.testDialog=dialog;
+
+  function testhtml(obj) {
+
+   var str='<div contenteditable="false" class="dialog_click" style="color: #00a2d4">'+obj.test+'<a style="cursor: pointer;color: #0000cc;margin-left: 10px;"  id="editTest" data-value="'+obj.test+'" onclick="editor.ui._dialogs.testDialog.open()">编辑</a><a style="cursor: pointer;color: #0000cc;margin-left: 10px;" onclick=""></a></div>';
+   //editor.ui._dialogs.linkDialog.open();
+    return str;
+}
+    editor.ui._dialogs.testDialog=dialog;
     //参考addCustomizeButton.js
     var btn = new UE.ui.Button({
         name:'dialogbutton' + uiName,
@@ -41,6 +58,7 @@ UE.registerUI('dialog',function(editor,uiName){
         cssRules :'background-position: -500px 0;',
         onclick:function () {
             //渲染dialog
+            var name="clickBtn";
             dialog.render();
             dialog.open();
         }

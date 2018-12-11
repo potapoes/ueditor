@@ -57,7 +57,6 @@ UE.registerUI('myblockquote',function(editor,uiName){
     });
 
     editor.addListener('selectionchange', function () {
-        console.log(this);
         var state = editor.queryCommandState('blockquote');
         if (state == -1) {
             btn.setDisabled(true);
