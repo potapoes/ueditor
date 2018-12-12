@@ -79,13 +79,13 @@ dialog.onok = function (){
                 //width = $G("width").value||100,
                 width = 520,
                 //height = $G("height").value||100,
-                height = 100,
+                height = 86,
                 //scroll = $G("scroll")||false,
                 scroll = false,
                 //frameborder = $G("frameborder")||false,
                 frameborder = false,
                 //float = $G("align").value||'left',
-                float = 'left',
+                float = '',
 
                 //获取讨论的标题和内容
                 kw=$G("kw").value||"",
@@ -112,9 +112,9 @@ dialog.onok = function (){
         }else{
             div = editor.document.createElement("div");
             div.appendChild(newIframe);
-            editor.execCommand("inserthtml",div.innerHTML);
-            console.log(editor)
-            window.parent.parent.UE.getEditor('myFormDesign').addListener('blur',function(editor){});
+            editor.execCommand("insertHtml",div.innerHTML);
+            //editor.blur();
+            //window.parent.parent.UE.getEditor('myFormDesign').addListener('blur',function(editor){});
             //window.parent.UE.dom.domUtils.preventDefault()
         }
         editor._iframe = null;

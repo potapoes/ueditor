@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/ueditor/js/ueditor/themes/iframe.css">
-    <link rel="stylesheet" href="/ueditor/js/ueditor/themes/layui.css">
+    <link rel="stylesheet" href="/ueditor/js/ueditor/lib/layui/css/layui.css">
     <style>
         iframe {
             margin-bottom: 10px;
@@ -86,7 +86,6 @@
         <span class="delete" style="margin-left: 20px">X</span>
     </div>
     <script>
-        console.log(window)
         // 获取iframe中的数据
         var kw = window.frameElement.getAttribute("kw") || "";
         var detail = window.frameElement.getAttribute("detail") || "";
