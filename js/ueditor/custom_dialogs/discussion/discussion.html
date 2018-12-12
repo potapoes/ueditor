@@ -5,15 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
     <meta name="generator" content="www.leipi.org" />
-    <link rel="stylesheet" href="/ueditor/js/ueditor/formdesign/bootstrap/css/bootstrap.css">
-    <!--[if lte IE 6]>
-    <link rel="stylesheet" type="text/css" href="/ueditor/js/ueditor/formdesign/bootstrap/css/bootstrap-ie6.css">
-    <![endif]-->
-    <!--[if lte IE 7]>
-    <link rel="stylesheet" type="text/css" href="/ueditor/js/ueditor/formdesign/bootstrap/css/ie.css">
-    <![endif]-->
+    <!-- <link rel="stylesheet" href="/ueditor/js/ueditor/formdesign/bootstrap/css/bootstrap.css"> -->
     <script type="text/javascript" src="/ueditor/js/ueditor/dialogs/internal.js"></script>
     <script type="text/javascript">
+    
 /* Thank you by  
 http://www.alt-tag.com/blog/2006/02/ie-dom-bugs/ */
 function createElement(type, name)
@@ -29,18 +24,29 @@ function createElement(type, name)
     return element;     
 }
     </script>
+    <style>
+        .content .tab-content{
+            /* justify-content: center; */
+            display: flex;
+            padding: 20px;
+        }
+        .content .tab-content tr td{
+            padding: 10px 0;
+            font-size: 12px;
+        }
+    </style>
 </head>
 <body>
 <div class="content">
-    <table class="table table-bordered table-striped table-hover">
-     <tr>
-         <th>讨论名称</th>
-         <th><input type="text" style="" name="kw" id="kw" /></th>
-     </tr>
-        <tr>
-         <th>讨论内容</th>
-         <th><input type="text" style="" name="detail" id="detail" /></th>
-     </tr>
+    <table class="tab-content">
+        <tr class="tr">
+            <td>讨论名称：</td>
+            <td><input type="text" name="kw" id="kw" /></td>
+        </tr>
+        <tr class="tr">
+            <td>讨论内容：</td>
+            <td><input type="text"  name="detail" id="detail" /></td>
+        </tr>
     </table>
 </div>
 <script type="text/javascript">

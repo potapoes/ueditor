@@ -48,7 +48,7 @@ UE.plugins['discussion'] = function () {
 				name:thePlugins,
 				editor:this,
 				title: '讨论框',
-				cssRules:"width:600px;height:310px;",
+				cssRules:"width:400px;height:200px;",
 				buttons:[
 				{
 					className:'edui-okbutton',
