@@ -30,83 +30,10 @@
  </head>
 <body>
 
-<!-- fixed navbar -->
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="brand" href="http://www.leipi.org" target="_blank">雷劈网</a>
-      <div class="nav-collapse collapse">
-        <ul class="nav">
-            <li class="active"><a href="/">表单设计器</a></li>
-            <li ><a href="http://formdesign.leipi.org/doc.html">文档</a></li>
-            <li ><a href="http://formdesign.leipi.org/demo.html">实例</a></li>
-            <li ><a href="http://formdesign.leipi.org/downloads.html">下载</a></li>
-            <li ><a href="http://formdesign.leipi.org/feedback.html">公开讨论</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
 
-
-    
-
-
-<!-- Docs page layout -->
-<div class="bs-header" id="content">
-  <div class="container">
-
-    <h1><img src="js/ueditor/formdesign/images/leipi_formdesign.png" width="64"/>WEB表单设计器 <small>Ueditor1.4.2 + Formdesign4.1.x</small></h1>
-    <p>
-        感谢大家使用，如有任何意见或建议，请务必告知，<a href="#bs-footer">免责声明</a>。
-        <p>
-        复制分享：<input type="text" value="大家都在用雷劈网WEB表单设计器，你去官网看看 http://formdesign.leipi.org/" style="width:80%" onclick="this.select()"/>
-        </p>
-        交流Q群： 143263697
-    </p>
-    
-  </div>
-</div>
-
-
-<div class="container">
+<div class="container" style="margin-top: 60px">
 <form method="post" id="saveform" name="saveform" action="/index.php?s=/index/parse.html">
 <input type="hidden" name="fields" id="fields" value="0">
-<div class="row">
-
-    <div class="well well-small">
-<span class="pull-right">
-    <a href="http://formdesign.leipi.org/demo.html" class="btn btn-success btn-small">使用实例演示</a>
-</span>
-
-<p>
- 一栏布局：<br /><br />
-        <button type="button" onclick="leipiFormDesign.exec('text');" class="btn btn-info">文本框</button>
-        <button type="button" onclick="leipiFormDesign.exec('textarea');" class="btn btn-info">多行文本</button>
-        <button type="button" onclick="leipiFormDesign.exec('select');" class="btn btn-info">下拉菜单</button>
-        <button type="button" onclick="leipiFormDesign.exec('radios');" class="btn btn-info">单选框</button>
-        <button type="button" onclick="leipiFormDesign.exec('checkboxs');" class="btn btn-info">复选框</button>
-        <button type="button" onclick="leipiFormDesign.exec('macros');" class="btn btn-info">宏控件</button>
-        <button type="button" onclick="leipiFormDesign.exec('progressbar');" class="btn btn-info">进度条</button>
-        <button type="button" onclick="leipiFormDesign.exec('qrcode');" class="btn btn-info">二维码</button>
-        <button type="button" onclick="leipiFormDesign.exec('listctrl');" class="btn btn-info">列表控件</button>
-        <button type="button" onclick="leipiFormDesign.exec('more');" class="btn btn-primary">一起参与...</button>
-</p>
-     </div>
-     
-</div>
-
-
-<div class="alert">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <strong>提醒：</strong>单选框和复选框，如：<code>{|-</code>选项<code>-|}</code>两边边界是防止误删除控件，程序会把它们替换为空，请不要手动删除！
-</div>
-
 
 <div class="row">
 
@@ -130,81 +57,7 @@
 
 <div class="span10">
 
-<script id="myFormDesign" type="text/plain" style="width:100%;">
-<p style="text-align: center;">
-    <br/>
-</p>
-<p style="text-align: center;">
-    <span style="font-size: 24px;">示例表</span>
-</p>
-<table class="table table-bordered">
-    <tbody>
-        <tr class="firstRow">
-            <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);">
-                文本框
-            </td>
-            <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="227">
-                <input style="text-align: left; width: 150px;" title="文本框" value="雷劈网" name="leipiNewField" orgheight="" orgwidth="150" orgalign="left" orgfontsize="" orghide="0" leipiplugins="text" orgtype="text"/>
-            </td>
-            <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="85">
-                下拉菜单
-            </td>
-            <td valign="top" style="border-color: rgb(221, 221, 221);" width="312">
-                {|-<span leipiplugins="select"><select name="leipiNewField" title="下拉菜单" leipiplugins="select" size="1" orgwidth="150" style="width: 150px;"><option value="下拉">
-                    下拉
-                </option>
-                <option value="菜单">
-                    菜单
-                </option></select>&nbsp;&nbsp;</span>-|}
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);">
-                单选
-            </td>
-            <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="41">
-{|-<span leipiplugins="radios"  title="单选" name="leipiNewField">
-    <input  value="单选1"   type="radio" checked="checked"/>单选1&nbsp;
-    <input  value="单选2"  type="radio"/>单选2&nbsp;
-</span>-|}
-            </td>
-            <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="85">
-                复选
-            </td>
-            <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="312">
-                {|-<span leipiplugins="checkboxs" title="复选">
-                    <input name="leipiNewField" value="复选1"  type="checkbox" checked="checked"/>复选1&nbsp;
-                    <input name="leipiNewField" value="复选2"  type="checkbox" checked="checked"/>复选2&nbsp;
-                    <input name="leipiNewField" value="复选3"  type="checkbox"/>复选3&nbsp;
-                    </span>-|}
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);">
-                宏控件
-            </td>
-            <td valign="top" style="border-color: rgb(221, 221, 221);" width="41">
-                <input name="leipiNewField" type="text" value="{macros}" title="宏控件" leipiplugins="macros" orgtype="sys_date_cn" orghide="0" orgfontsize="12" orgwidth="150" style="font-size: 12px; width: 150px;"/>
-            </td>
-            <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="85">
-                二维码
-            </td>
-            <td valign="top" style="border-color: rgb(221, 221, 221);" width="312">
-                <img name="leipiNewField" title="雷劈网" value="http://www.leipi.org" orgtype="url" leipiplugins="qrcode" src="js/ueditor/formdesign/images/qrcode.gif" orgwidth="40" orgheight="40" style="width: 40px; height: 40px;"/>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    <input name="leipiNewField" leipiplugins="listctrl" type="text" value="{列表控件}" readonly="readonly" title="采购商品列表" orgtitle="商品名称`数量`单价`小计`描述`" orgcoltype="text`int`int`int`text`" orgunit="```元``" orgsum="0`0`0`1`0`" orgcolvalue="`````" orgwidth="100%" style="width: 100%;"/>
-</p>
-<p>
-    <textarea title="多行文本" name="leipiNewField" leipiplugins="textarea" value="" orgrich="0" orgfontsize="12" orgwidth="600" orgheight="80" style="font-size:12px;width:600px;height:80px;"></textarea>
-</p>
-<p>
-    <img name="leipiNewField" title="进度条" leipiplugins="progressbar" orgvalue="20" orgsigntype="progress-info" src="js/ueditor/formdesign/images/progressbar.gif"/>
-</p>
-</script>
+<script id="myFormDesign" type="text/plain" style="width:100%;"></script>
 </div>
 
 
@@ -221,15 +74,7 @@
  
 
     
- <div class="bs-footer" role="contentinfo" id="bs-footer">
-      <div class="container">
-          <p><span class="glyphicon glyphicon-list-alt"></span> 免责声明：本站仅分享开发思路和示例代码并且乐于交流和促进网络良性发展，是非商业工具，如有疑问请加群或邮件告知，积极配合调整。</p>
-          <p><span class="glyphicon glyphicon-list-alt"></span> 反馈：payonesmile@qq.com</p>
-          <p><span class="glyphicon glyphicon-usd"></span> 支持：捐赠支付宝 payonesmile@qq.com 、<a href="#">捐赠记录</a></p>
-          <p><span class="glyphicon glyphicon-bookmark"></span> 鸣谢：<a href="http://ueditor.baidu.com" target="_balnk">UEditor</a>、<a href="https://github.com/twbs/bootstrap/" target="_balnk">Bootstrap</a>、<a href="http://www.leipi.org" target="_balnk">雷劈网</a></p>
-          <p><a href="http://www.leipi.org" title="雷劈网"><img src="http://www.leipi.org/wp-content/themes/leipi/images/leipi.png" alt="雷劈认证 icon" height="30"></a> &copy;2014 Ueditor Formdesign Plugins v4 leipi.org <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备13051130号</a></p>
-      </div>
-</div>
+
     
 
 <script type="text/javascript" charset="utf-8" src="js/jquery-1.7.2.min.js?2023"></script>

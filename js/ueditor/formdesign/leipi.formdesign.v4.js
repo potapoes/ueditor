@@ -1131,6 +1131,7 @@ UE.plugins['discussion'] = function () {
 	} );
 	popup.render();
 	me.addListener( 'mouseover', function( t, evt ) {
+	    return false;
 		evt = evt || window.event;
 		var el = evt.target || evt.srcElement;
         var leipiPlugins = el.getAttribute('leipiplugins');
