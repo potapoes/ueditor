@@ -1,54 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/ueditor/js/ueditor/themes/iframe.css">
+    <link rel="stylesheet" href="/ueditor/js/ueditor/themes/layui.css">
+    <style>
+        iframe {
+            margin-bottom: 10px;
+        }
+
+        .discussion {
+            height: 84px;
+            color: #333;
+            position: relative;
+            border: 1px solid #e2e2e2;
+        }
+
+        .discussion .discussion-title {
+            width: 100%;
+            height: 40px;
+            color: #333;
+            background: #f2f2f2;
+            display: flex;
+        }
+
+        .discussion .discussion-title li {
+            display: flex;
+            align-items: center;
+        }
+
+        .discussion .discussion-title .logo {
+            width: 28px;
+            height: 40px;
+            margin: 0 8px;
+            background: red
+        }
+
+        .discussion div {
+            width: 100%;
+            height: 40px;
+        }
+
+        .discussion div span {
+            cursor: pointer;
+        }
+
+        .discussion .delete {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+            top: 10px;
+        }
+        .discussion .content{
+            display: flex;
+            align-items: center;
+        }
+        .discussion .content .edit{
+            margin-left: 10px
+        }
+        .view p {
+            margin-bottom: 14px;
+            word-wrap: break-word;
+            text-indent: 2em;
+        }
+    </style>
 </head>
 
 <body>
-<div class="discussion row">
-   <ul class="row">
-        <li class="kw col-md-5"></li>
-        <li class="detail clo-md-5"></li>
-    </ul>
-    <div>
-        <span class="edit">编辑</span>
+    <div class="discussion row">
+        <ul class="discussion-title">
+            <li>
+                <img class="logo" src="" alt="">
+                <span>主题讨论：</span>
+                <span></span>
+            </li>
+            <li class="kw"></li>
+            <li class="detail"></li>
+        </ul>
+        <div class="content">
+                <i class="layui-icon layui-icon-edit"></i>  
+            <span class="edit">编辑</span>
+        </div>
         <span class="delete" style="margin-left: 20px">X</span>
     </div>
-</div>
-<script>
-    //获取iframe中的数据
-    var kw=window.frameElement.getAttribute("kw")||"";
-    var detail=window.frameElement.getAttribute("detail")||"";
-    var kwEle=document.getElementsByClassName("kw")[0];
-    var detailEle=document.getElementsByClassName("detail")[0];
-    var editPlugin=document.getElementsByClassName("edit")[0];
-    var deletePlugin=document.getElementsByClassName("delete")[0];
-    kwEle.innerHTML=kw;
-    detailEle.innerHTML=detail;
+    <script>
+        console.log(window)
+        // 获取iframe中的数据
+        var kw = window.frameElement.getAttribute("kw") || "";
+        var detail = window.frameElement.getAttribute("detail") || "";
+        var kwEle = document.getElementsByClassName("kw")[0];
+        var detailEle = document.getElementsByClassName("detail")[0];
+        var editPlugin = document.getElementsByClassName("edit")[0];
+        var deletePlugin = document.getElementsByClassName("delete")[0];
+        kwEle.innerHTML = kw;
+        detailEle.innerHTML = detail;
 
-    //编辑删除事件
 
-    var thePlugins = 'discussion';
-    editPlugin.addEventListener('click',function(t, evt){
-        var p=window.parent.parent;
-        var b=window.parent;
-        p.baidu.editor.plugins[thePlugins].editdom = window.frameElement;
-        b.editor.execCommand(thePlugins);
-    })
-    deletePlugin.addEventListener('click',function(t, evt){
-        var p=window.parent.parent;
-        var b=window.parent;
-       /* p.baidu.editor.plugins[thePlugins].editdom = window.frameElement;
-        b.editor.execCommand(thePlugins);*/
 
-        if( window.confirm('确认删除该控件吗？') ) {
-				p.baidu.editor.dom.domUtils.remove(window.frameElement,false);
-			}
+        var thePlugins = 'discussion';
+        // 编辑事件
+        editPlugin.addEventListener('click', function (t, evt) {
+            var p = window.parent.parent;
+            var b = window.parent;
+            p.baidu.editor.plugins[thePlugins].editdom = window.frameElement;
+            b.editor.execCommand(thePlugins);
+        })
+        //编辑删除事件
+        deletePlugin.addEventListener('click', function (t, evt) {
+            var p = window.parent.parent;
+            var b = window.parent;
+            /* p.baidu.editor.plugins[thePlugins].editdom = window.frameElement;
+             b.editor.execCommand(thePlugins);*/
 
-    })
+            if (window.confirm('确认删除该控件吗？')) {
+                p.baidu.editor.dom.domUtils.remove(window.frameElement, false);
+            }
 
-</script>
+        })
+    </script>
 </body>
+
 </html>

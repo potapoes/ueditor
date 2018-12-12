@@ -3,7 +3,7 @@
 <html>
  <head>
     
-    <title>WEB表单设计器 Ueditor Formdesign Plugins -leipi.org</title>
+    <title>WEB表单设计器</title>
         <meta name="keyword" content="ueditor Formdesign plugins,formdesigner,ueditor扩展,web表单设计器,高级表单设计器,Leipi Form Design,web form设计器,web form designer,javascript jquery ueditor php表单设计器,formbuilder">
         <meta name="description" content="Ueditor Web Formdesign Plugins 扩展即WEB表单设计器扩展，它通常在、OA系统、问卷调查系统、考试系统、等领域发挥着重要作用，你可以在此基础上任意修改使功能无限强大！">
 
@@ -11,13 +11,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="author" content="leipi.org">
-    <link href="css/bootstrap/css/bootstrap.css?2023" rel="stylesheet" type="text/css" />
+    <!-- <link href="css/bootstrap/css/bootstrap.css?2023" rel="stylesheet" type="text/css" /> -->
     <!--[if lte IE 6]>
     <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap-ie6.css?2023">
     <![endif]-->
     <!--[if lte IE 7]>
     <link rel="stylesheet" type="text/css" href="css/bootstrap/css/ie.css?2023">
     <![endif]-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- layui -->
+    <link rel="stylesheet" href="js/ueditor/lib/layui/css/layui.css">
+    <script src="js/ueditor/lib/layui/layui.all.js"></script>
+    <script>
+            //由于模块都一次性加载，因此不用执行 layui.use() 来加载对应模块，直接使用即可：
+            ;!function(){
+              var layer = layui.layer
+              ,form = layui.form;
+            }();
+    </script>
+
     <link href="css/site.css?2023" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
         var _root='http://form/index.php?s=/',_controller = 'index';
@@ -29,6 +41,7 @@
 
  </head>
 <body>
+
 
 
 <div class="container" style="margin-top: 60px">
