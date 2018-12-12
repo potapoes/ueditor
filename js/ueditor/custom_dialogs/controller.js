@@ -27,7 +27,7 @@ UE.registerUI('button_discussion',function(editor,uiName){
         //提示
         title:"创建讨论",
         //需要添加的额外样式，指定icon图标，这里默认使用一个重复的icon
-        cssRules :'background-position: -339px -40px;',
+        cssRules :'background-position: -642px -40px;',
         //点击时执行的命令
         onclick:function () {
             //这里可以不用执行命令,做你自己的操作也可
