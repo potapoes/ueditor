@@ -36,11 +36,11 @@
     //编辑删除事件
 
     var thePlugins = 'discussion';
-    editPlugin.addEventListener('click',function(){
-            // baidu.editor.plugins[thePlugins].editdom = popup.anchorEl;
-			  window.parent.editor.execCommand(thePlugins);
-
-			 // this.hide();
+    editPlugin.addEventListener('click',function(t, evt){
+        var p=window.parent.parent;
+        var b=window.parent;
+        p.baidu.editor.plugins[thePlugins].editdom = window.frameElement;
+        b.editor.execCommand(thePlugins);
     })
 
 </script>
