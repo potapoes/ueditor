@@ -5,15 +5,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
     <meta name="generator" content="www.leipi.org" />
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/ueditor/js/ueditor/formdesign/bootstrap/css/bootstrap.css">
     <!--[if lte IE 6]>
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-ie6.css">
+    <link rel="stylesheet" type="text/css" href="/ueditor/js/ueditor/formdesign/bootstrap/css/bootstrap-ie6.css">
     <![endif]-->
     <!--[if lte IE 7]>
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/ie.css">
+    <link rel="stylesheet" type="text/css" href="/ueditor/js/ueditor/formdesign/bootstrap/css/ie.css">
     <![endif]-->
-    <link rel="stylesheet" href="leipi.style.css">
-    <script type="text/javascript" src="../dialogs/internal.js"></script>
+    <script type="text/javascript" src="/ueditor/js/ueditor/dialogs/internal.js"></script>
     <script type="text/javascript">
 /* Thank you by  
 http://www.alt-tag.com/blog/2006/02/ie-dom-bugs/ */
@@ -66,9 +65,11 @@ dialog.oncancel = function () {
 };
 dialog.onok = function (){
   //  var iframe = editor._iframe;
+    var that=this;
      function queding(){
       //  var  url = $G("url").value.replace(/^\s*|\s*$/ig,""),
-        var  url = "localhost/ueditor/js/discussion_preview.html",
+       // var  url = "localhost/ueditor/js/discussion_preview.html",
+      var url =  window.parent.UEDITOR_CONFIG.UEDITOR_HOME_URL + UE.custom_url+'/discussion/discussion_preview.html',
                 //width = $G("width").value||100,
                 width = 520,
                 //height = $G("height").value||100,
