@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+        body{
+            width: 100%;
+            height: 100%;
+            background: #ccc;
+        }
+    </style>
+
+<body>
+我是讨论的数据
+<ul>
+    <li class="kw"></li>
+    <li class="detail"></li>
+</ul>
+<p>
+    <span class="edit">编辑</span>
+    <span class="delete" style="margin-left: 20px">删除</span>
+</p>
+<script>
+    //获取iframe中的数据
+    var kw=window.frameElement.getAttribute("kw")||"";
+    var detail=window.frameElement.getAttribute("detail")||"";
+    var kwEle=document.getElementsByClassName("kw")[0];
+    var detailEle=document.getElementsByClassName("detail")[0];
+    var editPlugin=document.getElementsByClassName("edit")[0];
+    var deletePlugin=document.getElementsByClassName("delete")[0];
+    kwEle.innerHTML=kw;
+    detailEle.innerHTML=detail;
+
+    //编辑删除事件
+
+    var thePlugins = 'discussion';
+    editPlugin.addEventListener('click',function(){
+            // baidu.editor.plugins[thePlugins].editdom = popup.anchorEl;
+			  window.parent.editor.execCommand(thePlugins);
+
+			 // this.hide();
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>讨论框</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+    <meta name="generator" content="www.leipi.org" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-ie6.css">
+    <![endif]-->
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/ie.css">
+    <![endif]-->
+    <link rel="stylesheet" href="leipi.style.css">
+    <script type="text/javascript" src="../dialogs/internal.js"></script>
+    <script type="text/javascript">
+/* Thank you by  
+http://www.alt-tag.com/blog/2006/02/ie-dom-bugs/ */
+function createElement(type, name)
+{     
+    var element = null;     
+    try {        
+        element = document.createElement('<'+type+' name="'+name+'">');     
+    } catch (e) {}   
+    if(element==null) {     
+        element = document.createElement(type);     
+        element.name = name;     
+    } 
+    return element;     
+}
+    </script>
+</head>
+<body>
+<div class="content">
+    <table class="table table-bordered table-striped table-hover">
+     <tr>
+         <th>讨论名称</th>
+         <th><input type="text" style="" name="kw" id="kw" /></th>
+     </tr>
+        <tr>
+         <th>讨论内容</th>
+         <th><input type="text" style="" name="detail" id="detail" /></th>
+     </tr>
+    </table>
+</div>
+<script type="text/javascript">
+var iframe = null,thePlugins = 'discussion';
+window.onload = function() {
+    if( UE.plugins[thePlugins].editdom ){
+        iframe = UE.plugins[thePlugins].editdom;
+		var gKw = '';
+		if(iframe.getAttribute('kw'))
+			gKw = iframe.getAttribute('kw').replace(/&quot;/g,"\"");
+		var gDetail=iframe.getAttribute('detail').replace(/&quot;/g,"\"");
+		gKw = gKw==null ? '' : gKw;
+        gDetail = gDetail==null ? '' : gDetail;
+		$G('kw').value = gKw;
+        $G('detail').value = gDetail;
+    }
+}
+dialog.oncancel = function () {
+    if( UE.plugins[thePlugins].editdom ) {
+        delete UE.plugins[thePlugins].editdom;
+    }
+};
+dialog.onok = function (){
+  //  var iframe = editor._iframe;
+     function queding(){
+      //  var  url = $G("url").value.replace(/^\s*|\s*$/ig,""),
+        var  url = "localhost/studyueditor/js/discussion_preview.html",
+                //width = $G("width").value||100,
+                width = 600,
+                //height = $G("height").value||100,
+                height = 200,
+                //scroll = $G("scroll")||false,
+                scroll = false,
+                //frameborder = $G("frameborder")||false,
+                frameborder = false,
+                //float = $G("align").value||'left',
+                float = 'left',
+
+                //获取讨论的标题和内容
+                kw=$G("kw").value||"",
+                detail=$G("detail").value||"",
+
+                newIframe = editor.document.createElement("iframe"),
+                div;
+        if(!url){
+            alert(lang.enterAddress);
+            return false;
+        }
+        newIframe.setAttribute("src",/http:\/\/|https:\/\//ig.test(url) ? url : "http://"+url);
+        /^[1-9]+[.]?\d*$/g.test( width ) ? newIframe.setAttribute("width",width) : "";
+        /^[1-9]+[.]?\d*$/g.test( height ) ? newIframe.setAttribute("height",height) : "";
+        scroll.checked ?  newIframe.setAttribute("scrolling","yes") : newIframe.setAttribute("scrolling","no");
+        frameborder.checked ?  newIframe.setAttribute("frameborder","1",0) : newIframe.setAttribute("frameborder","0",0);
+        float ? newIframe.setAttribute("align",float) :  newIframe.setAttribute("align","");
+        kw ? newIframe.setAttribute("kw",kw) :  newIframe.setAttribute("kw","");
+        detail ? newIframe.setAttribute("detail",detail) :  newIframe.setAttribute("detail","");
+        newIframe.setAttribute("leipiplugins","discussion");
+        if(iframe){
+            iframe.parentNode.insertBefore(newIframe,iframe);
+            domUtils.remove(iframe);
+        }else{
+            div = editor.document.createElement("div");
+            div.appendChild(newIframe);
+            editor.execCommand("inserthtml",div.innerHTML);
+        }
+        editor._iframe = null;
+        dialog.close();
+    };
+    queding();
+     return;
+};
+</script>
+</body>
+</html>
