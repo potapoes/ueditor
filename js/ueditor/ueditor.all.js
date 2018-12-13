@@ -25672,12 +25672,13 @@ UE.ui = baidu.editor.ui = {};
         getHtmlTpl: function (){
             return '<div id="##" class="edui-box %%">' +
                         '<div id="##_state" stateful>' +
-                            '<div class="%%-wrap"><div id="##_body" unselectable="on" ' + (this.title ? 'title="' + this.title + '"' : '') +
+                            '<div class="%%-wrap" class = "adfc"><div id="##_body" unselectable="on" ' + (this.title ? 'title="' + this.title + '"' : '') +
                                 ' class="%%-body" onmousedown="return $$._onMouseDown(event, this);" onclick="return $$._onClick(event, this);">' +
                                 (this.showIcon ? '<div class="edui-box edui-icon"></div>' : '') +
                                 (this.showText ? '<div class="edui-box edui-label">' + this.label + '</div>' : '') +
+                                (this.title && this.title != '关闭对话框' ? this.title : '')+
                             '</div>' +
-                            (this.title ? this.title : '')+
+                            
                             '</div>' +
                         '</div>'+
                     '</div>';
@@ -25769,9 +25770,13 @@ UE.ui = baidu.editor.ui = {};
                 '<div '+ (this.title ? 'title="' + this.title + '"' : '') +' id="##_state" stateful><div class="%%-body">' +
                 '<div id="##_button_body" class="edui-box edui-button-body" onclick="$$._onButtonClick(event, this);">' +
                 '<div class="edui-box edui-icon"></div>' +
+                '<div>'+(this.title ? this.title : '')+'</div>' +
                 '</div>' +
+               
                 '<div class="edui-box edui-splitborder"></div>' +
-                '<div class="edui-box edui-arrow" onclick="$$._onArrowClick();"></div>' +
+                '<div style = "height:36px" class="edui-box" onclick="$$._onArrowClick();">'+
+                    '<div class="edui-arrow"></div>'+
+                '</div>' +
                 '</div></div></div>';
         },
         showPopup: function (){
