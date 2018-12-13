@@ -427,11 +427,14 @@ div.edui-box {
 .edui-default .edui-toolbar .edui-combox-body .edui-button-body {
     width: 60px;
     font-size: 12px;
-    height: 20px;
-    line-height: 20px;
+    /* height: 20px;
+    line-height: 20px; */
     padding-left: 5px;
     white-space: nowrap;
     margin: 0 3px 0 0;
+    /* 新增样式 */
+    height: 40px;
+    line-height: 36px;
 }
 
 .edui-default .edui-toolbar .edui-combox-body .edui-arrow {
@@ -451,7 +454,7 @@ div.edui-box {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     /* 新增样式 */
-    margin:4px;
+    margin:0 4px;
 }
 
 .edui-default .edui-toolbar .edui-combox-body .edui-splitborder {
@@ -966,10 +969,14 @@ div.edui-box {
 /*splitbutton*/
 .edui-default .edui-toolbar .edui-splitbutton-body .edui-arrow,
 .edui-default .edui-toolbar .edui-menubutton-body .edui-arrow {
-    background: url(../images/icons.png) -741px 0;
-    _background: url(../images/icons.gif) -741px 0;
-    height: 20px;
     width: 9px;
+    /* background: url(../images/icons.png) -741px 0;
+    _background: url(../images/icons.gif) -741px 0;
+    height: 20px; */
+    /* 新增样式 */
+    background: url(../images/icons.png) -741px 12px;
+    height: 36px;
+   
 }
 
 
