@@ -20,8 +20,8 @@
     <![endif]-->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- layui -->
-    <!-- <link rel="stylesheet" href="/ueditor/js/ueditor/lib/layui/css/layui.css"> -->
-    <!-- <script src="/ueditor/js/ueditor/lib/layui/layui.all.js"></script> -->
+     <link rel="stylesheet" href="/ueditor/js/ueditor/lib/layui/css/layui.css">
+     <script src="/ueditor/js/ueditor/lib/layui/layui.all.js"></script>
     <script>
             //由于模块都一次性加载，因此不用执行 layui.use() 来加载对应模块，直接使用即可：
             ;!function(){
@@ -50,9 +50,12 @@
 
 <div class="row">
 
-<div class="span10">
+<div class="span10" style="position: relative">
 
 <script id="myFormDesign" type="text/plain" style="width:100%;"></script>
+    <div style="width: 80px;height: 100px;position: absolute;z-index:9999;display:none;" id="more_tools" class="layui-bg-red">
+    </div>
+
 </div>
 
 
