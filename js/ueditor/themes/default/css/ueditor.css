@@ -442,6 +442,8 @@ div.edui-box {
     border-radius: 2px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
+    /* 新增样式 */
+    margin: 12px 4px;
 }
 
 .edui-default .edui-toolbar .edui-combox-body .edui-splitborder {
@@ -490,9 +492,18 @@ div.edui-box {
     background-image: url(../images/icons.gif) \9;
 }
 
+
 .edui-default .edui-toolbar .edui-button .edui-button-wrap {
     padding: 1px;
     position: relative;
+
+    /* 新增加样式 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 12px;
+    margin: 0 6px
 }
 
 .edui-default .edui-toolbar .edui-button .edui-state-hover .edui-button-wrap {
@@ -954,6 +965,9 @@ div.edui-box {
 .edui-default .edui-toolbar .edui-splitbutton .edui-splitbutton-body,
 .edui-default .edui-toolbar .edui-menubutton .edui-menubutton-body {
     padding: 1px;
+    /* 新增加样式 */
+    margin: 10px;
+    
 }
 
 .edui-default .edui-toolbar .edui-splitborder {
@@ -1684,6 +1698,8 @@ div.edui-box {
     margin: 2px 4px 2px 3px;
     background: url(../images/icons.png) -181px 0;
     background: url(../images/icons.gif) -181px 0 \9;
+     /* 新增加样式 */
+     margin-top: 12px;
 }
 
 /*颜色按钮 */
