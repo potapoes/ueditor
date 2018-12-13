@@ -25693,9 +25693,9 @@ UE.ui = baidu.editor.ui = {};
                 return false;
             }
         },
-        _onClick: function (){
+        _onClick: function (e){
             if (!this.isDisabled()) {
-                this.fireEvent('click');
+                this.fireEvent('click',e);
             }
         },
         setTitle: function(text){
