@@ -26937,7 +26937,7 @@ UE.ui = baidu.editor.ui = {};
                     '</div>';
             }
 
-            return '<div id="##" class="%%"><div '+ ( !this.fullscreen ? 'class="%%"' : 'class="%%-wrap edui-dialog-fullscreen-flag"' ) +'><div id="##_body" class="%%-body">' +
+            return '<div id="##" class="%% shuidi-ueditor-dialog"><div '+ ( !this.fullscreen ? 'class="%%"' : 'class="%%-wrap edui-dialog-fullscreen-flag"' ) +'><div id="##_body" class="%%-body">' +
                 '<div class="%%-shadow"></div>' +
                 '<div id="##_titlebar" class="%%-titlebar">' +
                 '<div class="%%-draghandle" onmousedown="$$._onTitlebarMouseDown(event, this);">' +
@@ -29039,6 +29039,12 @@ UE.ui = baidu.editor.ui = {};
         editor.options.editor = editor;
         utils.loadFile(document, {
             href:editor.options.themePath + editor.options.theme + "/css/ueditor.css",
+            tag:"link",
+            type:"text/css",
+            rel:"stylesheet"
+        });
+        utils.loadFile(document, {
+            href:editor.options.themePath + editor.options.theme + "/css/dialog.css",
             tag:"link",
             type:"text/css",
             rel:"stylesheet"

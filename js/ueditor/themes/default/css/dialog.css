@@ -1,0 +1,38 @@
+
+/*自定义dialog*/
+.shuidi-ueditor-dialog .edui-dialog-draghandle{
+    background: #009688;
+    color: #ffffff;
+}
+.shuidi-ueditor-dialog .edui-dialog-shadow{
+    border: none;
+    border-radius: 0;
+}
+.shuidi-ueditor-dialog .edui-dialog-body{
+    padding: 0;
+}
+.shuidi-ueditor-dialog .edui-dialog-closebutton .edui-button-body{
+    background: #dcac6c;
+}
+.shuidi-ueditor-dialog .edui-dialog-closebutton .edui-button-body:hover{
+    background: #2d6987;
+}
+
+.shuidi-ueditor-dialog .edui-dialog-buttons .edui-button .edui-button-body{
+    background: none;
+    border: 1px solid #2E2D3C;
+    cursor: pointer;
+}
+.shuidi-ueditor-dialog .edui-dialog-buttons .edui-button .edui-button-body:hover{
+    background: none;
+}
+.shuidi-ueditor-dialog .edui-dialog-buttons .edui-button:first-child .edui-button-body{
+    background: #009688;
+    border: none;
+    color: #ffffff;
+    width: 98px;
+    height: 26px;
+}
+.shuidi-ueditor-dialog .edui-dialog-buttons .edui-button:first-child .edui-button-body:hover{
+     background: #009688;
+}
