@@ -104,3 +104,179 @@ UE.plugins['discussion'] = function () {
 		}
 	});
 };
+
+
+/**
+自定义--更多
+ */
+
+UE.registerUI('更多',function(editor,uiName){
+
+     var val = editor.options.more_tools || ["link","spechars","wordimage"];
+     var valObj=[
+         {
+             "text":"超链接",
+             "isEditor":true,
+             "value":"link"
+         },
+         {
+             "text":"特殊字符",
+             "isEditor":true,
+             "value":"spechars"
+         },
+         {
+             "text":"图片转存",
+             "isEditor":true,
+             "value":"wordimage"
+         },
+         {
+             "text":"课程讨论",
+             "isEditor":false,
+             "value":"discussion"
+         }
+     ]
+        if (!valObj.length)return;
+        for (var i = 0, ci, items = []; ci = valObj[i++];) {
+            items.push({
+                //todo:写死了
+                label:ci.text,
+                value:ci.value,
+                theme:editor.options.theme,
+                is_editor:ci.isEditor,
+                onclick:function () {
+                  //  editor.execCommand("lineheight", this.value);
+                    if(this.is_editor){
+                        editor.ui._dialogs[this.value+"Dialog"].render();
+                        editor.ui._dialogs[this.value+"Dialog"].open();
+                    }else{
+                        editor.execCommand(this.value);
+                    }
+
+
+                }
+            })
+        }
+        var ui = new baidu.editor.ui.MenuButton({
+            editor:editor,
+            className:'edui-for-more-tools',
+            title:'更多',
+            items:items,
+            onbuttonclick:function () {
+                return false;
+                var value = editor.queryCommandValue('LineHeight') || this.value;
+                editor.execCommand("LineHeight", value);
+            }
+        });
+        return ui;
+}/*index 指定添加到工具栏上的那个位置，默认时追加到最后,editorId 指定这个UI是那个编辑器实例上的，默认是页面上所有的编辑器都会添加这个按钮*/);
+/*自定义更多-2*/
+UE.registerUI('button_more',function(editor,uiName){
+    if(!this.options.toolleipi)
+    {
+        return false;
+    }
+    //注册按钮执行时的command命令，使用命令默认就会带有回退操作
+    editor.registerCommand(uiName,{
+        execCommand:function(){
+            try {
+               // leipiFormDesign.exec('discussion');
+                //leipiFormDesign.fnCheckForm('save');
+
+            } catch ( e ) {
+                alert('打开讨论异常');
+            }
+
+        }
+    });
+    //创建一个button
+
+     function offset(elem){
+                var obj={
+                    left:elem.offsetLeft,
+                    top:elem.offsetTop,
+                    width:elem.offsetWidth,
+                    height:elem.offsetHeight
+                }
+               while(elem != document.body){
+                    elem = elem.offsetParent ;
+                    obj.left += elem.offsetLeft ;
+                    obj.top += elem.offsetTop ;
+                }
+             return obj;
+
+            }
+                 var options=[
+         {
+             "text":"超链接",
+             "isEditor":true,
+             "value":"link"
+         },
+         {
+             "text":"特殊字符",
+             "isEditor":true,
+             "value":"spechars"
+         },
+         {
+             "text":"图片转存",
+             "isEditor":true,
+             "value":"wordimage"
+         },
+         {
+             "text":"课程讨论",
+             "isEditor":false,
+             "value":"discussion"
+         }
+     ];
+      //弹出更多的框
+
+            var str="<div><ul>";
+            for(var i=0;i<options.length;i++){
+                str+='<li style="cursor: pointer;" data-iseditor="'+options[i].isEditor+'" data-value="'+options[i].value+'">'+options[i].text+'</li>'
+            }
+            str+="</ul></div>";
+    var btn = new UE.ui.Button({
+        //按钮的名字
+        name:uiName,
+        //提示
+        title:"更多",
+        //需要添加的额外样式，指定icon图标，这里默认使用一个重复的icon
+        cssRules :'background-position: -458px -40px;',
+        //点击时执行的命令
+        onclick:function (e,a,v) {
+            var that=this;
+            //这里可以不用执行命令,做你自己的操作也可
+          // editor.execCommand(uiName);
+            var eleObj=offset(this.target);
+            var more_tools=document.getElementById("more_tools");
+            if(more_tools.style.display=='block'){
+                more_tools.style.display='none';
+            }else{
+                more_tools.style.display='block';
+                more_tools.style.left=eleObj.left+"px";
+                more_tools.style.top=eleObj.top-30+"px";
+                more_tools.innerHTML=str;
+                var aLi=more_tools.getElementsByTagName("li");
+                for(var i=0;i<aLi.length;i++){
+                    aLi[i].addEventListener('click',function(e){
+
+                        var is_editor=this.dataset.iseditor;
+                        var value=this.dataset.value;
+                        more_tools.style.display='none';
+                        if(is_editor=='true'){
+                            editor.ui._dialogs[value+"Dialog"].render();
+                            editor.ui._dialogs[value+"Dialog"].open();
+                        }else{
+                            editor.execCommand(value);
+                        }
+                        e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
+                    })
+                }
+
+            };
+
+        }
+    });
+
+    //因为你是添加button,所以需要返回这个button
+    return btn;
+});
