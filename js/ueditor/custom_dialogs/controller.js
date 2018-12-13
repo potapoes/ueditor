@@ -15,7 +15,7 @@ UE.registerUI('button_discussion',function(editor,uiName){
                 leipiFormDesign.exec('discussion');
                 //leipiFormDesign.fnCheckForm('save');
             } catch ( e ) {
-                alert('打开模板异常');
+                alert('打开讨论异常');
             }
 
         }
