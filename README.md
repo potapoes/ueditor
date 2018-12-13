@@ -1,8 +1,8 @@
-### ×Ô¶¨Òå°´Å¥
-ÔÚcustom_dialogsÖĞÔö¼ÓÏàÓ¦Ä£¿é£¬ÔÚcontroller.jsÖĞ×¢²á°´Å¥ºÍÒ³Ãæ¡£
+### è‡ªå®šä¹‰æŒ‰é’®
+åœ¨custom_dialogsä¸­å¢åŠ ç›¸åº”æ¨¡å—ï¼Œåœ¨controller.jsä¸­æ³¨å†ŒæŒ‰é’®å’Œé¡µé¢ã€‚
 ```
 /**
-×Ô¶¨Òå--ÌÖÂÛ
+è‡ªå®šä¹‰--è®¨è®º
  */
 
 UE.registerUI('button_discussion',function(editor,uiName){
@@ -10,34 +10,34 @@ UE.registerUI('button_discussion',function(editor,uiName){
     {
         return false;
     }
-    //×¢²á°´Å¥Ö´ĞĞÊ±µÄcommandÃüÁî£¬Ê¹ÓÃÃüÁîÄ¬ÈÏ¾Í»á´øÓĞ»ØÍË²Ù×÷
+    //æ³¨å†ŒæŒ‰é’®æ‰§è¡Œæ—¶çš„commandå‘½ä»¤ï¼Œä½¿ç”¨å‘½ä»¤é»˜è®¤å°±ä¼šå¸¦æœ‰å›é€€æ“ä½œ
     editor.registerCommand(uiName,{
         execCommand:function(){
             try {
                 leipiFormDesign.exec('discussion');
                 //leipiFormDesign.fnCheckForm('save');
             } catch ( e ) {
-                alert('´ò¿ªÄ£°åÒì³£');
+                alert('æ‰“å¼€æ¨¡æ¿å¼‚å¸¸');
             }
 
         }
     });
-    //´´½¨Ò»¸öbutton
+    //åˆ›å»ºä¸€ä¸ªbutton
     var btn = new UE.ui.Button({
-        //°´Å¥µÄÃû×Ö
+        //æŒ‰é’®çš„åå­—
         name:uiName,
-        //ÌáÊ¾
-        title:"´´½¨ÌÖÂÛ",
-        //ĞèÒªÌí¼ÓµÄ¶îÍâÑùÊ½£¬Ö¸¶¨iconÍ¼±ê£¬ÕâÀïÄ¬ÈÏÊ¹ÓÃÒ»¸öÖØ¸´µÄicon
+        //æç¤º
+        title:"åˆ›å»ºè®¨è®º",
+        //éœ€è¦æ·»åŠ çš„é¢å¤–æ ·å¼ï¼ŒæŒ‡å®šiconå›¾æ ‡ï¼Œè¿™é‡Œé»˜è®¤ä½¿ç”¨ä¸€ä¸ªé‡å¤çš„icon
         cssRules :'background-position: -642px -40px;',
-        //µã»÷Ê±Ö´ĞĞµÄÃüÁî
+        //ç‚¹å‡»æ—¶æ‰§è¡Œçš„å‘½ä»¤
         onclick:function () {
-            //ÕâÀï¿ÉÒÔ²»ÓÃÖ´ĞĞÃüÁî,×öÄã×Ô¼ºµÄ²Ù×÷Ò²¿É
+            //è¿™é‡Œå¯ä»¥ä¸ç”¨æ‰§è¡Œå‘½ä»¤,åšä½ è‡ªå·±çš„æ“ä½œä¹Ÿå¯
            editor.execCommand(uiName);
         }
     });
 
-    //ÒòÎªÄãÊÇÌí¼Óbutton,ËùÒÔĞèÒª·µ»ØÕâ¸öbutton
+    //å› ä¸ºä½ æ˜¯æ·»åŠ button,æ‰€ä»¥éœ€è¦è¿”å›è¿™ä¸ªbutton
     return btn;
 });
 
@@ -49,19 +49,19 @@ UE.plugins['discussion'] = function () {
 				iframeUrl:this.options.UEDITOR_HOME_URL + UE.custom_url+'/discussion/discussion.html',
 				name:thePlugins,
 				editor:this,
-				title: 'ÌÖÂÛ¿ò',
+				title: 'è®¨è®ºæ¡†',
 				cssRules:"width:400px;height:200px;",
 				buttons:[
 				{
 					className:'edui-okbutton',
-					label:'È·¶¨',
+					label:'ç¡®å®š',
 					onclick:function () {
 						dialog.close(true);
 					}
 				},
 				{
 					className:'edui-cancelbutton',
-					label:'È¡Ïû',
+					label:'å–æ¶ˆ',
 					onclick:function () {
 						dialog.close(false);
 					}
@@ -81,7 +81,7 @@ UE.plugins['discussion'] = function () {
 			  this.hide();
 		},
 		_delete:function(){
-			if( window.confirm('È·ÈÏÉ¾³ı¸Ã¿Ø¼şÂğ£¿') ) {
+			if( window.confirm('ç¡®è®¤åˆ é™¤è¯¥æ§ä»¶å—ï¼Ÿ') ) {
 				baidu.editor.dom.domUtils.remove(this.anchorEl,false);
 			}
 			this.hide();
@@ -95,7 +95,7 @@ UE.plugins['discussion'] = function () {
         var leipiPlugins = el.getAttribute('leipiplugins');
 		if ( /iframe/ig.test( el.tagName ) && leipiPlugins==thePlugins) {
 			var html = popup.formatHtml(
-				'<nobr>ÎÄ±¾¿ò: <span onclick=$$._edittext() class="edui-clickable">±à¼­</span>&nbsp;&nbsp;<span onclick=$$._delete() class="edui-clickable">É¾³ı</span></nobr>' );
+				'<nobr>æ–‡æœ¬æ¡†: <span onclick=$$._edittext() class="edui-clickable">ç¼–è¾‘</span>&nbsp;&nbsp;<span onclick=$$._delete() class="edui-clickable">åˆ é™¤</span></nobr>' );
 			if ( html ) {
 				popup.getDom( 'content' ).innerHTML = html;
 				popup.anchorEl = el;
@@ -107,26 +107,26 @@ UE.plugins['discussion'] = function () {
 	});
 };
 ```
-### ÔÚiframeÖĞ±à¼­×Ô¶¨Òå¿ò(p´ú±í×îÍâ²ãwindow,b´ú±í±à¼­Æ÷iframe)
+### åœ¨iframeä¸­ç¼–è¾‘è‡ªå®šä¹‰æ¡†(pä»£è¡¨æœ€å¤–å±‚window,bä»£è¡¨ç¼–è¾‘å™¨iframe)
 ```
- // ±à¼­ÊÂ¼ş
+ // ç¼–è¾‘äº‹ä»¶
         editPlugin.addEventListener('click', function (t, evt) {
             var p = window.parent.parent;
             var b = window.parent;
             p.baidu.editor.plugins[thePlugins].editdom = window.frameElement;
             b.editor.execCommand(thePlugins);
         })
-        //±à¼­É¾³ıÊÂ¼ş
+        //ç¼–è¾‘åˆ é™¤äº‹ä»¶
         deletePlugin.addEventListener('click', function (t, evt) {
             var p = window.parent.parent;
             var b = window.parent;
             /* p.baidu.editor.plugins[thePlugins].editdom = window.frameElement;
              b.editor.execCommand(thePlugins);*/
 
-            if (window.confirm('È·ÈÏÉ¾³ı¸Ã¿Ø¼şÂğ£¿')) {
+            if (window.confirm('ç¡®è®¤åˆ é™¤è¯¥æ§ä»¶å—ï¼Ÿ')) {
                 p.baidu.editor.dom.domUtils.remove(window.frameElement, false);
             }
         })
 ```
-### ±à¼­Æ÷±£´æ
-1.ajax²ÎÊı£ºÎÄµµÄÚÈİ£¬ÎÄµµË³Ğò£¨Ô¤ÀÀÓÃµ½£©
+### ç¼–è¾‘å™¨ä¿å­˜
+1.ajaxå‚æ•°ï¼šæ–‡æ¡£å†…å®¹ï¼Œæ–‡æ¡£é¡ºåºï¼ˆé¢„è§ˆç”¨åˆ°ï¼‰
