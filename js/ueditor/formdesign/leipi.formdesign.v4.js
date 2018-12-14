@@ -65,7 +65,7 @@ UE.plugins['text'] = function () {
 		}
 	} );
 	popup.render();
-	me.addListener( 'mouseover', function( t, evt ) {
+	me.addListener( 'mouseover', function( t, evt ) { 
 		evt = evt || window.event;
 		var el = evt.target || evt.srcElement;
         var leipiPlugins = el.getAttribute('leipiplugins');

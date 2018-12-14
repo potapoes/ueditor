@@ -2,8 +2,11 @@ UE.custom_url = 'custom_dialogs';
 /**
 自定义--讨论
  */
+UE.registerUI('button_new',function(editor,uiName){
 
+})
 UE.registerUI('button_discussion',function(editor,uiName){
+    console.log(this.options)
     if(!this.options.toolleipi)
     {
         return false;
