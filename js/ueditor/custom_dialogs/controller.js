@@ -113,7 +113,7 @@ UE.plugins['discussion'] = function () {
 自定义--更多
  */
 
-UE.registerUI('更多',function(editor,uiName){
+/*UE.registerUI('更多',function(editor,uiName){
 
      var val = editor.options.more_tools || ["link","spechars","wordimage"];
      var valObj=[
@@ -171,7 +171,7 @@ UE.registerUI('更多',function(editor,uiName){
             }
         });
         return ui;
-}/*index 指定添加到工具栏上的那个位置，默认时追加到最后,editorId 指定这个UI是那个编辑器实例上的，默认是页面上所有的编辑器都会添加这个按钮*/);
+}/!*index 指定添加到工具栏上的那个位置，默认时追加到最后,editorId 指定这个UI是那个编辑器实例上的，默认是页面上所有的编辑器都会添加这个按钮*!/);*/
 /*自定义更多-2*/
 UE.registerUI('button_more',function(editor,uiName){
     if(!this.options.toolleipi)
@@ -215,25 +215,15 @@ UE.registerUI('button_more',function(editor,uiName){
              "value":"link"
          },
          {
-             "text":"特殊字符",
-             "isEditor":true,
-             "value":"spechars"
-         },
-         {
-             "text":"图片转存",
-             "isEditor":true,
-             "value":"wordimage"
-         },
-         {
              "text":"课程讨论",
              "isEditor":false,
              "value":"discussion"
          }
      ];
       //弹出更多的框
-    var str="<div><ul>";
+    var str="<div><ul class='layui-row'>";
     for(var i=0;i<options.length;i++){
-        str+='<li style="cursor: pointer;height: 24px;padding-left: 4px" data-iseditor="'+options[i].isEditor+'" data-value="'+options[i].value+'">'+options[i].text+'</li>'
+        str+='<li class="layui-col-md6 shuidi-'+options[i].value+'" style="cursor: pointer;" data-iseditor="'+options[i].isEditor+'" data-value="'+options[i].value+'"><div class="shuidi_more_tools_bg"></div><span>'+options[i].text+'</span></li>'
     }
     str+="</ul></div>";
     var more_tools=document.getElementById("more_tools");
@@ -274,8 +264,8 @@ UE.registerUI('button_more',function(editor,uiName){
                 more_tools.style.display='none';
             }else{
                 more_tools.style.display='block';
-                more_tools.style.left=eleObj.left+"px";
-                more_tools.style.top=eleObj.top-16+"px";
+                more_tools.style.left=eleObj.left-10+"px";
+                more_tools.style.top=eleObj.top+6+"px";
             };
             e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
         }

@@ -1862,7 +1862,7 @@ div.edui-box {
 
 .addtoolsclass .edui-default .edui-toolbar .edui-button .edui-button-wrap {
     font-size: 12px;
-    margin: 0 6px;
+    margin: 0 2px;
 }
 
 .addtoolsclass .edui-default .edui-toolbar .edui-button .edui-button-wrap .edui-button-body{
@@ -1881,4 +1881,124 @@ div.edui-box {
 /*分隔线*/
 .addtoolsclass .edui-default .edui-toolbar .edui-separator {
      margin-top: 12px;
+}
+
+/*修改工具栏样式*/
+#saveform .edui-default .edui-editor-toolbarboxouter{
+    height: 66px;
+    background-image: none;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+    background:#ffffff;
+}
+#saveform .edui-default .edui-editor-toolbarbox{
+    box-shadow: none;
+}
+#saveform .addtoolsclass .edui-default .edui-toolbar .edui-button .edui-button-wrap{
+    margin: 0 2px;
+}
+#saveform .edui-default .edui-toolbar .edui-button .edui-icon,#saveform .edui-default .edui-toolbar .edui-menubutton .edui-icon,#saveform  .edui-default .edui-toolbar .edui-splitbutton .edui-icon{
+    width: 50px!important;
+    height: 38px!important;
+    background-image: url(../images/shuidi_doc_icons.png);
+}
+/*撤销*/
+#saveform .edui-default .edui-for-undo .edui-icon{
+    background-position: -50px 0!important;
+}
+/*重做*/
+#saveform .edui-default .edui-for-redo .edui-icon{
+    background-position: -150px 0!important;
+}
+/*视频*/
+#saveform .edui-default .edui-for-insertvideo .edui-icon{
+    background-position: -200px 0!important;
+}
+/*讨论*/
+#saveform .edui-default .edui-for-button_discussion .edui-icon{
+     background-position: -300px 0!important;
+}
+/*图片*/
+#saveform .edui-default .edui-for-insertimage .edui-icon{
+    background-position: -350px 0!important;
+}
+/*加粗*/
+#saveform .edui-default .edui-for-bold .edui-icon{
+    background-position: -450px 0!important;
+}
+/*斜体*/
+#saveform .edui-default .edui-for-italic .edui-icon{
+     background-position: -500px 0!important;
+}
+/*下划线*/
+#saveform .edui-default .edui-for-underline .edui-icon{
+    background-position: -550px 0!important;
+}
+/*字体颜色*/
+#saveform .edui-default .edui-for-forecolor .edui-icon{
+    background-position: -650px 0!important;
+}
+/*清除格式*/
+#saveform .edui-default .edui-for-removeformat .edui-icon{
+    background-position: -750px 0!important;
+}
+/*有序列表（编号）*/
+#saveform .edui-default .edui-for-insertorderedlist .edui-icon{
+    background-position: -100px -60px!important;
+}
+/*无序列表（目录）*/
+#saveform .edui-default .edui-for-insertunorderedlist .edui-icon{
+    background-position: -50px -60px!important;
+}
+/*居左对齐*/
+#saveform .edui-default .edui-for-justifyleft .edui-icon{
+    background-position: -50px -60px!important;
+}
+/*插入表格*/
+#saveform .edui-default .edui-for-inserttable .edui-icon{
+    background-position: -150px -60px!important;
+}
+/*超链接*/
+#saveform .edui-default .edui-for-link .edui-icon{
+    background-position: -200px -60px!important;
+}
+/*更多*/
+#saveform .edui-default .edui-for-button_more .edui-icon{
+    background-position: -500px -60px!important;
+}
+.shuidi_more_tools{
+    width: 124px;
+    height: auto;
+    border: 1px solid #ccc;
+    background: #ffffff;
+    position: absolute;
+    z-index:9999;
+    display:none;
+    padding: 2px;
+}
+.shuidi_more_tools li{
+    height: 60px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.shuidi_more_tools li:hover{
+    background-color: #fff5d4;
+    border: 1px solid #dcac6c;
+}
+.shuidi_more_tools .shuidi_more_tools_bg{
+    width: 50px!important;
+    height: 38px!important;
+    background-image: url(../images/shuidi_doc_icons.png);
+}
+/*自定义（后期需要改）*/
+.shuidi_more_tools .shuidi_link .shuidi_more_tools_bg{
+    background-position: -200px -60px!important;
+}
+.shuidi_more_tools .shuidi_link .shuidi_more_tools_bg{
+    background-position: -200px -60px!important;
+}
+.shuidi_more_tools .shuidi-discussion .shuidi_more_tools_bg{
+    background-position: -300px 0px!important;
 }
