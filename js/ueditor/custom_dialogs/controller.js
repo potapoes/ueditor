@@ -208,7 +208,7 @@ UE.registerUI('button_more',function(editor,uiName){
              return obj;
 
             }
-                 var options=[
+     var options=[
          {
              "text":"超链接",
              "isEditor":true,
@@ -231,35 +231,15 @@ UE.registerUI('button_more',function(editor,uiName){
          }
      ];
       //弹出更多的框
-
-            var str="<div><ul>";
-            for(var i=0;i<options.length;i++){
-                str+='<li style="cursor: pointer;" data-iseditor="'+options[i].isEditor+'" data-value="'+options[i].value+'">'+options[i].text+'</li>'
-            }
-            str+="</ul></div>";
-    var btn = new UE.ui.Button({
-        //按钮的名字
-        name:uiName,
-        //提示
-        title:"更多",
-        //需要添加的额外样式，指定icon图标，这里默认使用一个重复的icon
-        cssRules :'background-position: -458px -40px;',
-        //点击时执行的命令
-        onclick:function (e,a,v) {
-            var that=this;
-            //这里可以不用执行命令,做你自己的操作也可
-          // editor.execCommand(uiName);
-            var eleObj=offset(this.target);
-            var more_tools=document.getElementById("more_tools");
-            if(more_tools.style.display=='block'){
-                more_tools.style.display='none';
-            }else{
-                more_tools.style.display='block';
-                more_tools.style.left=eleObj.left+"px";
-                more_tools.style.top=eleObj.top-30+"px";
-                more_tools.innerHTML=str;
-                var aLi=more_tools.getElementsByTagName("li");
-                for(var i=0;i<aLi.length;i++){
+    var str="<div><ul>";
+    for(var i=0;i<options.length;i++){
+        str+='<li style="cursor: pointer;height: 24px;padding-left: 4px" data-iseditor="'+options[i].isEditor+'" data-value="'+options[i].value+'">'+options[i].text+'</li>'
+    }
+    str+="</ul></div>";
+    var more_tools=document.getElementById("more_tools");
+    more_tools.innerHTML=str;
+    var aLi=more_tools.getElementsByTagName("li");
+    for(var i=0;i<aLi.length;i++){
                     aLi[i].addEventListener('click',function(e){
 
                         var is_editor=this.dataset.iseditor;
@@ -274,9 +254,30 @@ UE.registerUI('button_more',function(editor,uiName){
                         e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
                     })
                 }
-
+     document.onclick = function (e) {
+         more_tools.style.display='none';
+    }
+    var btn = new UE.ui.Button({
+        //按钮的名字
+        name:uiName,
+        //提示
+        title:"更多",
+        //需要添加的额外样式，指定icon图标，这里默认使用一个重复的icon
+        cssRules :'background-position: -458px -40px;',
+        //点击时执行的命令
+        onclick:function (a,e) {
+            var that=this;
+            //这里可以不用执行命令,做你自己的操作也可
+          // editor.execCommand(uiName);
+            var eleObj=offset(this.target);
+            if(more_tools.style.display=='block'){
+                more_tools.style.display='none';
+            }else{
+                more_tools.style.display='block';
+                more_tools.style.left=eleObj.left+"px";
+                more_tools.style.top=eleObj.top-16+"px";
             };
-
+            e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
         }
     });
 
