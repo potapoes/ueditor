@@ -37,7 +37,7 @@ UE.registerUI('button_discussion',function(editor,uiName){
 
     //因为你是添加button,所以需要返回这个button
     return btn;
-});
+},8);
 
 UE.plugins['discussion'] = function () {
 	var me = this,thePlugins = 'discussion';
